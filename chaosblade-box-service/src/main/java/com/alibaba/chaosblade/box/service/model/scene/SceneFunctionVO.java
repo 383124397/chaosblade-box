@@ -49,18 +49,12 @@ public class SceneFunctionVO {
     Date gmtCreate;
     List<Integer> supportOsTypes;
 
-    /**
-     * @deprecated 小程序会存在不同授权，而且会区分读、写、执行权限，不能单纯的标记是否公开，粒度太粗
-     */
     Boolean isPublic;
 
     List<SceneFunctionAuthorizedVO> authorizedRecords;
 
     List<SceneFunctionVO> dependencyFunctions;
 
-    /**
-     * @deprecated
-     */
     Boolean isFissionFunction;
 
     private Script script;

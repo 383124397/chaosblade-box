@@ -1,17 +1,15 @@
 package com.alibaba.chaosblade.box.service.auth.perimission;
 
 import com.alibaba.chaosblade.box.common.infrastructure.constant.PermissionTypes;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 /**
  * @author sunju
  *
  */
-@Data
+@Getter
+@Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(staticName = "of")

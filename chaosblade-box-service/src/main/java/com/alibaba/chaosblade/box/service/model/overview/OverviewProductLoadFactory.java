@@ -73,7 +73,7 @@ public class OverviewProductLoadFactory implements InitializingBean {
             fileReader = new FileReader(file);
             reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
             int ch;
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             while ((ch = reader.read()) != -1) {
                 sb.append((char) ch);
             }

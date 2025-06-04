@@ -41,11 +41,9 @@ public class SceneAuthorizedDO extends BaseDO {
     Date functionCreateTime; // 冗余字段，与SceneFunctionDO#gmtCreate保持一致
 
     @TableField(exist = false)
-    @Deprecated
     List<String> categories; // 冗余字段，与SceneFunctionDO#categories保持一致
 
     @TableField(exist = false)
-    @Deprecated
     String supportScopeTypes; //冗余字段，与SceneFunctionDO#supportScopeTypes保持一致
 
     Boolean supportHost;

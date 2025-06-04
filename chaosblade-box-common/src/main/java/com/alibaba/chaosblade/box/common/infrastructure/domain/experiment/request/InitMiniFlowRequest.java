@@ -3,6 +3,7 @@ package com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.reque
 import com.alibaba.chaosblade.box.common.app.sdk.constants.PhaseType;
 import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
  *
  *
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class InitMiniFlowRequest extends BaseRequest {
 	

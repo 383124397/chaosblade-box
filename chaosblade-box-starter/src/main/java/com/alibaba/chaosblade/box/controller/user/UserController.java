@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Objects;
 
 /**
  * @author sunju
@@ -36,14 +37,16 @@ public class UserController extends SessionBaseController {
     @ApiOperation(value = "用户注册")
     @PostMapping("UserRegister")
     public Response<Boolean> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) throws NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, IOException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
+        if (!Objects.equals("Y", userRegisterRequest.getIsAdmin())) {
+            throw new IllegalArgumentException("user register is not supported now, please use login instead");
+        }
         if (userService.userNameExist(userRegisterRequest.getUserName())) {
             throw new IllegalArgumentException("user name already exist");
-//            return Response.ofFailure()
         }
-
         ChaosUser user = userService.saveUser(userRegisterRequest.getUserName(),
                 EncryptUtil.reEncryptPassword(userRegisterRequest.getPassword()));
         namespaceService.initDefaultNamespace(user.getUserId());
+
         return Response.ofSuccess(true);
     }
 
@@ -53,6 +56,7 @@ public class UserController extends SessionBaseController {
         ChaosUser user = userService.login(userRegisterRequest.getUserName(), EncryptUtil.reEncryptPassword(userRegisterRequest.getPassword()));
         refreshSession(user);
         userService.updateLastLoginTime(user.getId());
+
         return Response.ofSuccess(user);
     }
 

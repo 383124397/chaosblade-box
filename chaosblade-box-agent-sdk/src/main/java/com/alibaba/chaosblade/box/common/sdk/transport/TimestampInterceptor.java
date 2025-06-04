@@ -16,11 +16,11 @@ public class TimestampInterceptor extends RequestInterceptorChain {
     @Override
     public void doHandle(Request request) throws RequestException {
         String ts = request.getParam("ts");
-        if (ts == null || ts.length() == 0) {
+        if (ts == null || ts.isEmpty()) {
             throw new InvalidTimestampException("missing timestamp");
         }
         try {
-            long clientTime = Long.valueOf(ts);
+            long clientTime = Long.parseLong(ts);
             long serverTime = System.currentTimeMillis();
             if (serverTime - clientTime > MAX_INVALID_TIME) {
                 throw new InvalidTimestampException("exceeding maximum failure time, server time: " + serverTime + ", "
@@ -32,7 +32,7 @@ public class TimestampInterceptor extends RequestInterceptorChain {
     }
 
     @Override
-    public void doInvoke(Request request) throws RequestException {
+    public void doInvoke(Request request) {
         request.addParam(TIMESTAMP_KEY, System.currentTimeMillis() + "");
     }
 }

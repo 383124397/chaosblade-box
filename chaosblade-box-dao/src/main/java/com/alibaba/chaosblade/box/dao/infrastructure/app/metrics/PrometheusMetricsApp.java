@@ -140,7 +140,7 @@ public class PrometheusMetricsApp extends BaseChaosApp {
 
         String step = "14";
 
-        Map<String, String> params = new HashMap(8);
+        Map<String, String> params = new HashMap<>(8);
         params.put("query", query);
         params.put("start", String.valueOf(Long.parseLong(from) / 1000));
         params.put("end", String.valueOf(Long.parseLong(to) / 1000));

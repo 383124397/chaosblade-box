@@ -83,9 +83,7 @@ public final class ExceptionHelper {
                 if (t != null) {
                     if (newLines) {
                         sb.append("\n");
-                        for (int i = 0; i < counter; i++) {
-                            sb.append("\t");
-                        }
+                        sb.append("\t".repeat(Math.max(0, counter)));
                     } else {
                         sb.append("nested: ");
                     }

@@ -99,7 +99,7 @@ public class SystemUtils {
                 Enumeration<InetAddress> addresses = ni.getInetAddresses();
                 while (addresses.hasMoreElements()) {
                     address = addresses.nextElement();
-                    if (!address.isLoopbackAddress() && address.getHostAddress().indexOf(":") == -1) {
+                    if (!address.isLoopbackAddress() && !address.getHostAddress().contains(":")) {
                         return address.getHostAddress();
                     }
                 }

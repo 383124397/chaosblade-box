@@ -158,9 +158,9 @@ public class SceneAuthorizedRepository implements IRepository<String, SceneAutho
 
     public List<SceneAuthorizedDO> getAuthorizedRecordsGroupBy(SceneAuthorizedQueryRequest query) {
         return sceneAuthorizedMapper.selectList(buildQueryWrapper(query)
-            .groupBy(
-                "function_id"
-            )
+//            .groupBy(
+//                "function_id"
+//            )
             .orderByDesc(
                 "function_create_time"
             ));

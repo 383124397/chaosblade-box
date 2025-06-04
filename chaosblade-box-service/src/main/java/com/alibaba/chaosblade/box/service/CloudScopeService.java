@@ -20,7 +20,7 @@ public interface CloudScopeService {
      * @param scopeQueryRequest
      * @return
      */
-    public Response<ScopeInfo> findOneScope(ScopeInfoQueryRequest scopeQueryRequest);
+    Response<ScopeInfo> findOneScope(ScopeInfoQueryRequest scopeQueryRequest);
 
     /**
      * 分页查询资源信息
@@ -28,7 +28,7 @@ public interface CloudScopeService {
      * @param experimentScopePageableRequest
      * @return
      */
-    public Response<PageableResponse<ExperimentScope>> pageableQueryExperimentScopes(
+    Response<PageableResponse<ExperimentScope>> pageableQueryExperimentScopes(
         ExperimentScopePageableRequest experimentScopePageableRequest);
 
     /**
@@ -37,7 +37,7 @@ public interface CloudScopeService {
      * @param scopeQueryRequest
      * @return
      */
-    public Response<List<ExperimentScopeInvokeCount>> countExperimentScopeInvocation(
+    Response<List<ExperimentScopeInvokeCount>> countExperimentScopeInvocation(
         ScopeInfoQueryRequest scopeQueryRequest);
 
     /**
@@ -46,13 +46,13 @@ public interface CloudScopeService {
      * @param scopeQueryRequest
      * @return
      */
-    public Response<List<FunctionInvocationCount>> countExperimentScopeSceneFunctionCount(
+    Response<List<FunctionInvocationCount>> countExperimentScopeSceneFunctionCount(
         ScopeInfoQueryRequest scopeQueryRequest);
 
     /**
      * @param scopeInfoQueryRequest
      * @return
      */
-    public Response<PageableResponse<ScopeExperimentTask>> pageableQueryExperimentTaskByScope(
+    Response<PageableResponse<ScopeExperimentTask>> pageableQueryExperimentTaskByScope(
         PageableScopeExperimentTaskQueryRequest scopeInfoQueryRequest);
 }

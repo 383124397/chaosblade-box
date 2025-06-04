@@ -13,12 +13,6 @@ public class ExperimentActivityTargetTaskBeforeCreateEvent extends BaseChaosEven
 
     protected ExperimentMiniAppTaskDO experimentMiniAppTaskDO;
 
-    /**
-     * Constructs a prototypical Event.
-     *
-     * @param source The object on which the Event initially occurred.
-     * @throws IllegalArgumentException if source is null.
-     */
     public ExperimentActivityTargetTaskBeforeCreateEvent(ExperimentMiniAppTaskDO experimentMiniAppTaskDO) {
         this.experimentMiniAppTaskDO = experimentMiniAppTaskDO;
 

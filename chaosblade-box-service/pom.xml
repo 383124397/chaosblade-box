@@ -11,48 +11,35 @@
 
     <artifactId>chaosblade-box-service</artifactId>
     <dependencies>
-
         <dependency>
             <groupId>io.chaosblade</groupId>
             <artifactId>chaosblade-box-common</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>io.chaosblade</groupId>
             <artifactId>chaosblade-box-dao</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>io.chaosblade</groupId>
             <artifactId>chaosblade-box-toolsmgr</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>io.chaosblade</groupId>
             <artifactId>chaosblade-box-agent-sdk</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>io.chaosblade</groupId>
             <artifactId>chaosblade-box-cache</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -76,14 +63,13 @@
             <artifactId>mybatis-plus-annotation</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
         </dependency>
-
         <dependency>
             <groupId>net.javacrumbs.shedlock</groupId>
             <artifactId>shedlock-core</artifactId>
@@ -92,39 +78,13 @@
             <groupId>net.javacrumbs.shedlock</groupId>
             <artifactId>shedlock-provider-jdbc-template</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.eclipse.collections</groupId>
             <artifactId>eclipse-collections</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
         </dependency>
-
     </dependencies>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

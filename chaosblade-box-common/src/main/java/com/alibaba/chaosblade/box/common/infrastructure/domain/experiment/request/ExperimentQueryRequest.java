@@ -4,6 +4,7 @@ import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import com.alibaba.chaosblade.box.common.common.enums.ExperimentStateEnum;
 import com.alibaba.chaosblade.box.common.common.enums.ResultEnum;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  *
  * 
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ExperimentQueryRequest extends BaseRequest {
 

@@ -4,12 +4,14 @@ import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import com.alibaba.chaosblade.box.dao.infrastructure.configuration.ConfigurationScope;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author haibin.lhb
  *
  *
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ApplicationConfigurationUpdateRequest extends BaseRequest {
 

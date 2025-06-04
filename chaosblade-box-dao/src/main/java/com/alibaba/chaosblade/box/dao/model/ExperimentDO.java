@@ -43,7 +43,6 @@ public class ExperimentDO extends BaseDO {
     /**
      * 演练故障等级
      *
-     * @deprecated
      */
     @TableField(value = "level")
     private String level;
@@ -51,7 +50,6 @@ public class ExperimentDO extends BaseDO {
     /**
      * 演练的负责人ID
      *
-     * @deprecated
      */
     @TableField(value = "owner_user_id")
     private String ownerUserId;

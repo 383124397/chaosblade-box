@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -90,7 +91,7 @@ public class ActivityTaskHostPercentInterceptor implements ActivityTaskHostPerce
     private int getCount(int hostCount, float percent) {
         BigDecimal a = new BigDecimal(hostCount);
         BigDecimal b = new BigDecimal(percent);
-        return a.multiply(b).setScale(0, BigDecimal.ROUND_UP).intValue();
+        return a.multiply(b).setScale(0, RoundingMode.UP).intValue();
     }
 
     private List<Host> selectHost(int size, Hosts hosts) {

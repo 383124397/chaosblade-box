@@ -31,11 +31,11 @@ public class ChaosAgentVersion implements Comparable<ChaosAgentVersion>, java.io
         if (versionStr.length < MIN_VERSION_LENGTH) {
             throw new IllegalArgumentException("illegal version");
         }
-        _majorVersion = Integer.valueOf(versionStr[0]);
-        _minorVersion = Integer.valueOf(versionStr[1]);
-        _secondMinorVersion = Integer.valueOf(versionStr[2]);
+        _majorVersion = Integer.parseInt(versionStr[0]);
+        _minorVersion = Integer.parseInt(versionStr[1]);
+        _secondMinorVersion = Integer.parseInt(versionStr[2]);
         if (versionStr.length > MIN_VERSION_LENGTH) {
-            _thirdMinorVersion = Integer.valueOf(versionStr[3]);
+            _thirdMinorVersion = Integer.parseInt(versionStr[3]);
         } else {
             _thirdMinorVersion = 0;
         }

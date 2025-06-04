@@ -2,12 +2,14 @@ package com.alibaba.chaosblade.box.service.model.expertise;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author haibin
  *
  *
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ExperimentExpertiseUpdateRequest extends BaseExpertiseOperationRequest {
 

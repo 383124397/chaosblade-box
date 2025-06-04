@@ -1,5 +1,7 @@
 package com.alibaba.chaosblade.box.common.experiment.task.flow.util;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -73,8 +75,7 @@ public class HashMapSettings implements Settings {
     }
 
     @Override
-    public <T> T getObject(String key, Class<T> tClass,
-        Supplier<T> supplierIfNotExist) {
+    public <T> T getObject(String key, Class<T> tClass, Supplier<T> supplierIfNotExist) {
         T result = getObject(key, tClass);
         if (result == null) {
             result = supplierIfNotExist.get();
@@ -93,8 +94,7 @@ public class HashMapSettings implements Settings {
     @Override
     public <T> T getObject(String key, Class<T> tClass) {
         Object object = maps.get(key);
-        if (object == null) { return null; }
-        return (T)object;
+        return null == object ? null : (T) object;
     }
 
     @Override

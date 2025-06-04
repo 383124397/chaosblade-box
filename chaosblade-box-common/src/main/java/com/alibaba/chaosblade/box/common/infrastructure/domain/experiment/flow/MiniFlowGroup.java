@@ -44,10 +44,6 @@ public class MiniFlowGroup {
 
     private List<String> appGroups;
 
-    /**
-     * 机器选择方式
-     * {@link HostSelectTypes}
-     */
     private Integer selectType;
 
     /**

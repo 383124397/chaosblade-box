@@ -990,10 +990,4 @@ CREATE TABLE IF NOT EXISTS t_chaos_m_quartz_trigger_log
 create index idx_gmt_create
     on t_chaos_m_quartz_trigger_log (gmt_create);
 
-
-
-
-
-
-
-
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));

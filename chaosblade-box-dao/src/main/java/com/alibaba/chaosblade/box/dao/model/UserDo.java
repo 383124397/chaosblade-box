@@ -8,7 +8,6 @@ import java.util.Date;
 
 @TableName("t_chaos_user")
 @Data
-//@Deprecated
 public class UserDo extends BaseDO {
     private String userId;
 

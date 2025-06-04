@@ -1,6 +1,7 @@
 package com.alibaba.chaosblade.box.service.command.guard;
 
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.alibaba.chaosblade.box.common.app.sdk.ChaosAppContext;
 import com.alibaba.chaosblade.box.common.app.sdk.ChaosAppRequest;
 import com.alibaba.chaosblade.box.common.app.sdk.ChaosAppResponse;
@@ -11,6 +12,8 @@ import com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.SceneA
 import com.alibaba.chaosblade.box.common.infrastructure.metric.ChaosMetricEntity;
 import com.alibaba.chaosblade.box.dao.model.ExperimentGuardInstanceDO;
 import com.alibaba.chaosblade.box.dao.model.ExperimentTaskDO;
+import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -57,8 +60,13 @@ public interface GuardExecutableInterface {
             ChaosAppResponse chaosAppResponse = internalInvoke(chaosAppContext, chaosAppRequest, appCode,
                 experimentGuardInstanceDO);
             if (chaosAppResponse != null && chaosAppResponse.isSuccess()) {
-                List<ChaosMetricEntity> chaosMetricEntities = (List<ChaosMetricEntity>)chaosAppResponse.getData().get("response");
-                stringListMap.put(host, chaosMetricEntities);
+                String responseString = JSON.toJSONString(chaosAppResponse.getData().get("response"));
+                if (StringUtils.isNotBlank(responseString)) {
+                    List<ChaosMetricEntity> chaosMetricEntities = JSON.parseArray(responseString, ChaosMetricEntity.class);
+                    if (!CollectionUtil.isEmpty(chaosMetricEntities)) {
+                        stringListMap.put(host, chaosMetricEntities);
+                    }
+                }
             }
         }
         return stringListMap;

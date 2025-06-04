@@ -45,13 +45,10 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
 
     private Charset charset = Charset.forName("UTF-8");
 
-    @Deprecated
     protected SerializerFeature[] features = new SerializerFeature[0];
 
-    @Deprecated
     protected SerializeFilter[] filters = new SerializeFilter[0];
 
-    @Deprecated
     protected String dateFormat;
 
     /**

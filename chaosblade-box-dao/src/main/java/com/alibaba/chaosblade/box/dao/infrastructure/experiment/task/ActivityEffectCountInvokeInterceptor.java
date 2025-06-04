@@ -47,7 +47,7 @@ public class ActivityEffectCountInvokeInterceptor extends BaseActivityInvokeInte
         if (experimentNodeArgumentsDefinition.getAllArguments().containsKey(key)) {
             String value = experimentNodeArgumentsDefinition.getAllArguments().get(key);
             try {
-                if (Integer.valueOf(value) <= 0) {
+                if (Integer.parseInt(value) <= 0) {
                     experimentNodeArgumentsDefinition.removeArg(key);
                 }
             } catch (Exception ex) {

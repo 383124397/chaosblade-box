@@ -12,7 +12,6 @@ public class AnsibleCommandExtraVarsUtil {
     /**
      * 特殊变量采用 extra-var方式 添加到ad-hoc 命令行中，不存储hosts文件
      *
-     * @param ansibleContext
      * @return
      */
     public static String getExtraVars(MgrRequest mgrRequest) {

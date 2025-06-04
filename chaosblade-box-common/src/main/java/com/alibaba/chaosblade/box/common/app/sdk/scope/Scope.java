@@ -177,16 +177,14 @@ public class Scope implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Scope{");
-        sb.append("ip='").append(ip).append('\'');
-        sb.append(", port=").append(port);
-        sb.append(", hostName='").append(hostName).append('\'');
-        sb.append(", app='").append(app).append('\'');
-        sb.append(", nodeGroup='").append(nodeGroup).append('\'');
-        sb.append(", deviceId='").append(deviceId).append('\'');
-        sb.append(", deviceConfigurationId='").append(deviceConfigurationId).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Scope{" + "ip='" + ip + '\'' +
+                ", port=" + port +
+                ", hostName='" + hostName + '\'' +
+                ", app='" + app + '\'' +
+                ", nodeGroup='" + nodeGroup + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                ", deviceConfigurationId='" + deviceConfigurationId + '\'' +
+                '}';
     }
 
     @Override

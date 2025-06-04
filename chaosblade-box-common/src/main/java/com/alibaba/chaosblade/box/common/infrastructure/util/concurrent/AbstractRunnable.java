@@ -37,10 +37,6 @@ public abstract class AbstractRunnable implements Runnable {
      */
     public abstract void onFailure(Throwable e);
 
-    /**
-     * This should be executed if the thread-pool executing this action rejected the execution.
-     * The default implementation forwards to {@link #onFailure(Exception)}
-     */
     public void onRejection(Throwable e) {
         onFailure(e);
     }

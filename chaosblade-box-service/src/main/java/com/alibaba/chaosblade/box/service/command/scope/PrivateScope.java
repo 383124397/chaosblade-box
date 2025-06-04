@@ -156,23 +156,21 @@ public class PrivateScope implements IChaosDomain {
         Preconditions.checkArgument(StrUtil.isNotBlank(vpcId));
         Preconditions.checkArgument(StrUtil.isNotBlank(deviceId));
         Preconditions.checkNotNull(deviceType);
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(userId);
-        stringBuffer.append('|').append(namespace);
-        stringBuffer.append('|').append(vpcId);
-        stringBuffer.append('|').append(hostIp);
-        stringBuffer.append('|').append(deviceType);
-        stringBuffer.append('|').append(deviceId);
-        return DigestUtils.md5Hex(stringBuffer.toString());
+        String stringBuffer = userId +
+                '|' + namespace +
+                '|' + vpcId +
+                '|' + hostIp +
+                '|' + deviceType +
+                '|' + deviceId;
+        return DigestUtils.md5Hex(stringBuffer);
     }
 
     public static String generatorKubernetesConfigurationId(String userId, String namespace, String vpcId, String uid) {
         Preconditions.checkArgument(StringUtils.isNotBlank(userId));
         Preconditions.checkArgument(StringUtils.isNotBlank(vpcId));
         Preconditions.checkArgument(StringUtils.isNotBlank(uid));
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(userId).append('|').append(namespace).append('|').append(vpcId);
-        stringBuffer.append(DeviceType.POD.getType()).append(uid);
-        return DigestUtils.md5Hex(stringBuffer.toString());
+        String stringBuffer = userId + '|' + namespace + '|' + vpcId +
+                DeviceType.POD.getType() + uid;
+        return DigestUtils.md5Hex(stringBuffer);
     }
 }

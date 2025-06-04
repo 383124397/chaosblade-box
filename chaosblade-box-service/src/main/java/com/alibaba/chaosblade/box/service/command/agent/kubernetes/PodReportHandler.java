@@ -249,7 +249,7 @@ public class PodReportHandler {
             .generatorKubernetesConfigurationId(userId, namespace, hostDeviceDO.getVpcId(),
                 kubPodInfoDTO.getUid()));
 
-        kubPodInfoDTO.setMd5(Hashing.md5().newHasher().putString(kubPodInfoDTO.toString(), Charsets.UTF_8)
+        kubPodInfoDTO.setMd5(Hashing.sha256().newHasher().putString(kubPodInfoDTO.toString(), Charsets.UTF_8)
             .hash().toString());
         return kubPodInfoDTO;
     }

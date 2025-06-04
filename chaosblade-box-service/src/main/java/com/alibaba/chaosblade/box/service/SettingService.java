@@ -15,17 +15,17 @@ public interface SettingService {
 
     Map<String, String> queryAgentInstallCommandByMode(String var1, String var2, InstallMode var3, DeviceOsType var4, String var5, String var6);
 
-    public String queryHelmAgentInstallPackageAddress();
+    String queryHelmAgentInstallPackageAddress();
 
-    public Map<String, String> queryAgentUnInstallCommand(String userId, String namespace, String configurationId);
+    Map<String, String> queryAgentUnInstallCommand(String userId, String namespace, String configurationId);
 
-    public Boolean uninstallAgent(String user, SettingRequest settingRequest);
+    Boolean uninstallAgent(String user, SettingRequest settingRequest);
 
-    public Response<String> installAgentForHost(String lincense, InstallAgentForHostRequest installAgentForHostRequest);
+    Response<String> installAgentForHost(String lincense, InstallAgentForHostRequest installAgentForHostRequest);
 
-    public Boolean uninstallAgentForHost(String user, SettingRequest settingRequest);
+    Boolean uninstallAgentForHost(String user, SettingRequest settingRequest);
 
-    public Boolean pingAgent(DeviceDO deviceDO);
+    Boolean pingAgent(DeviceDO deviceDO);
 
-    public PluginDTO queryAgentPluginDetail(String var1, String var2, String var3);
+    PluginDTO queryAgentPluginDetail(String var1, String var2, String var3);
 }

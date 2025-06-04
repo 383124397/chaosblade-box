@@ -10,6 +10,7 @@ import com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.guard.
 import com.alibaba.chaosblade.box.common.infrastructure.metric.ChaosMetricEntity;
 import com.alibaba.chaosblade.box.dao.infrastructure.experiment.guard.ExperimentGuardResultLoadRequest;
 import com.alibaba.chaosblade.box.dao.model.ExperimentGuardInstanceDO;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -60,7 +61,8 @@ public class BizProbeMonitorStrategy implements MonitorStrategy {
             experimentGuardInstanceDO.getAppCode(), experimentGuardInstanceDO);
         List<ExperimentGuardMetricDataItem> experimentGuardMetricDataItemList = new ArrayList<>();
         if (chaosAppResponse != null && chaosAppResponse.isSuccess()) {
-            List<ChaosMetricEntity> chaosMetricEntities = (List<ChaosMetricEntity>)chaosAppResponse.getData().get("response");
+            String jsonString = JSON.toJSONString(chaosAppResponse.getData().get("response"));
+            List<ChaosMetricEntity> chaosMetricEntities =  JSON.parseArray(jsonString, ChaosMetricEntity.class);
             experimentGuardMetricDataItemList = chaosMetricEntities.stream().map(
                 chaosMetricEntity -> {
                     experimentGuardMonitorMetricResultEntity.setUnit(chaosMetricEntity.getUnit());

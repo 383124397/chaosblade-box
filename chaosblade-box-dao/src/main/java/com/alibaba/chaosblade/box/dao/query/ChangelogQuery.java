@@ -12,7 +12,6 @@ import java.util.Date;
  */
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Deprecated
 public class ChangelogQuery {
 
     String targetId;

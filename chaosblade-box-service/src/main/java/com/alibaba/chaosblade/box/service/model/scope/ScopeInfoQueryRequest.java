@@ -3,6 +3,7 @@ package com.alibaba.chaosblade.box.service.model.scope;
 import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
  * 
  *
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ScopeInfoQueryRequest extends BaseRequest implements Serializable {
 

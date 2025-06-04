@@ -13,6 +13,7 @@ import com.alibaba.chaosblade.box.dao.query.ApplicationDeviceQuery;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.google.common.base.Strings;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -356,12 +357,9 @@ public class ApplicationDeviceRepository implements IRepository<String, Applicat
 		QueryWrapper<ApplicationDeviceDO> queryWrapper = new QueryWrapper<>();
 		queryWrapper.eq("status", DeviceStatus.ONLINE.getStatus());
 		queryWrapper.eq("is_deleted", 0);
-		if (CollectionUtil.isNullOrEmpty(appIds)) {
-			queryWrapper.eq("user_id", userId);
-		} else {
-			queryWrapper.and(wrapper -> wrapper.eq("user_id", userId).or().in("app_id", appIds));
-		}
-		queryWrapper.groupBy("app_id");
+		queryWrapper.eq(StringUtils.isNotBlank(userId), "user_id", userId);
+		queryWrapper.in(!CollectionUtil.isNullOrEmpty(appIds), "app_id", appIds);
+//		queryWrapper.groupBy("app_id");
 		return applicationDeviceMapper.selectList(queryWrapper);
 	}
 

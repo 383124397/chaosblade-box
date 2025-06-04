@@ -53,19 +53,9 @@ public class WorkspaceRelationDO extends BaseDO {
     @TableField("outer_description")
     String outerDescription;
 
-    /**
-     * Type of workspace relation
-     *
-     * @see WorkspaceRelationTypes
-     */
     @TableField("relation_type")
     String relationType;
 
-    /**
-     * @see PermissionTypes
-     * <p>
-     * Default permission is {@link PermissionTypes#R}
-     */
     @TableField("permission")
     Integer permission;
 

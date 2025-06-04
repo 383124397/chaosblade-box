@@ -3,10 +3,12 @@ package com.alibaba.chaosblade.box.service.model.agent;
 import com.alibaba.chaosblade.box.common.common.constant.PrivateCloudConstant;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * agent的注册请求
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class RegisteredCallbackRequest extends BaseCallbackRequest {
 

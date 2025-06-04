@@ -33,11 +33,6 @@ public interface SceneFunctionService {
     String addSceneFunction(SceneFunctionCreateRequest sceneFunctionCreateRequest)
             throws ChaosException;
 
-    /**
-     * 查询小程序是不是裂变小程序
-     *
-     * @deprecated
-     */
     Boolean queryIsFissionSceneFunction(String functionId);
 
     PageableResponse<SceneFunctionDO> querySceneFunctions(int pageNo, int pageSize, SceneQueryRequest queryRequest);

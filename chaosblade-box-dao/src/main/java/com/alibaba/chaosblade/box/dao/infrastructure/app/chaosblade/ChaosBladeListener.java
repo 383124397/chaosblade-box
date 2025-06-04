@@ -9,14 +9,5 @@ import com.alibaba.chaosblade.box.common.common.domain.chaosblade.ChaosBladeMeta
  */
 public interface ChaosBladeListener {
 
-    /**
-     * 当claos blade加载完毕之后
-     *
-     * @param chaosBladeInvoker
-     * @param cloud
-     * @return
-     * @throws Exception
-     */
-    public ChaosBladeMetaData onCompleted(ChaosBladeInvoker chaosBladeInvoker) throws Exception;
-
+    ChaosBladeMetaData onCompleted(ChaosBladeInvoker chaosBladeInvoker) throws Exception;
 }

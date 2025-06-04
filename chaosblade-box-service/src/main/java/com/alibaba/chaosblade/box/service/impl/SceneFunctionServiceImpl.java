@@ -143,11 +143,8 @@ public class SceneFunctionServiceImpl implements SceneFunctionService {
 
     @Override
     public Boolean queryIsFissionSceneFunction(String functionId) {
-        SceneFunctionRelationDO relationDO = sceneFunctionRelationRepository.findByFunctionId(functionId);
-        if (null != relationDO) {
-            return !relationDO.getFunctionId().equals(relationDO.getOutFunctionId());
-        }
-        return false;
+        return sceneFunctionRelationRepository.countByFunctionId(functionId) > 0
+            && sceneFunctionRelationRepository.countByOutFunctionId(functionId) > 0;
     }
 
     private String createSceneFunction(String sceneId, SceneFunctionCreateRequest sceneFunctionCreateRequest)

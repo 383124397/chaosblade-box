@@ -47,21 +47,19 @@ import static com.alibaba.chaosblade.box.toolsmgr.ansible.AnsibleConstants.SSH_F
 @Slf4j
 @Component
 @ChannelStrategy(ChannelType.ANSIBLE)
-public class AnsibleChaosToolsMgr implements ChaosToolsMgr<MgrRequest> {
+public class AnsibleChaosToolsMgr implements ChaosToolsMgr {
 
     private static final long DEFAULT_TIME_OUT = 3000;
 
     @Override
     public Response<String> deployAndInstallAgent(MgrRequest mgrRequest) {
-
-
         AnsibleCommand ansibleCommand = new AnsibleShellScriptCommand();
         return ansibleExecutor(ansibleCommand.getCommand(mgrRequest), ansibleCommand, 3 * 60000, TimeUnit.MICROSECONDS);
     }
 
     @Override
     public Response<String> uninstallAgent(MgrRequest mgrRequest) {
-        String command = String.format("sh /opt/chaos/chaosctl.sh uninstall");
+        String command = "sh /opt/chaos/chaosctl.sh uninstall";
         mgrRequest.setCommand(command);
         AnsibleCommand ansibleCommand = new AnsibleShellScriptCommand();
         return ansibleExecutor(ansibleCommand.getCommand(mgrRequest), ansibleCommand);
@@ -82,7 +80,7 @@ public class AnsibleChaosToolsMgr implements ChaosToolsMgr<MgrRequest> {
             // ping failed, need send sshkey
             Response<String> sendResult = sendSSHKeyIfNotExitOnPassword(mgrRequest);
             if (!sendResult.isSuccess()) {
-                log.error("[ansible] send ssh key failed. "+ sendResult.getError());
+                log.error("[ansible] send ssh key failed. {}", sendResult.getError());
                 return sendResult;
             }
 
@@ -120,15 +118,15 @@ public class AnsibleChaosToolsMgr implements ChaosToolsMgr<MgrRequest> {
             process.waitFor(DEFAULT_TIME_OUT, TimeUnit.MICROSECONDS);
             if (process.getErrorStream().available() > 0) {
                 String error = IoUtil.read(process.getErrorStream(), System.getProperty("file.encoding"));
-                log.error("[ansible] send sshKey failed : " + error);
+                log.error("[ansible] send sshKey failed : {}", error);
                 return Response.ofFailure(Response.Code.INVALID_Parameter, error);
             } else {
                 List<String> content = new ArrayList<>(16);
                 IoUtil.readLines(new InputStreamReader(process.getInputStream()), content);
-                log.info("[ansible] send ssh key content: "+JSON.toJSONString(content));
+                log.info("[ansible] send ssh key content: {}", JSON.toJSONString(content));
 
                 String result = IoUtil.read(process.getInputStream(), System.getProperty("file.encoding"));
-                log.info("[ansible] send ssh key result: "+ result);
+                log.info("[ansible] send ssh key result: {}", result);
                 if (result.contains("rc=0") || result.contains("Number of key(s) added: 1")) {
                     return Response.ofSuccess("");
                 } else {
@@ -136,7 +134,7 @@ public class AnsibleChaosToolsMgr implements ChaosToolsMgr<MgrRequest> {
                 }
             }
         } catch (Exception e) {
-            log.error("Ansible send ssh key exception " + mgrRequest + e.getMessage(), e);
+            log.error("Ansible send ssh key exception {} {}", mgrRequest, e.getMessage(), e);
             return Response.ofFailure(Response.Code.INVALID_Parameter, e.getMessage());
         }
     }

@@ -48,6 +48,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -313,7 +314,7 @@ public class ExperimentTaskServiceImpl implements ExperimentTaskService, Initial
                     (experimentTaskSimple.getEndTime().getTime() - experimentTaskSimple.getStartTime().getTime())
                         / 60000.0);
                 result.put(experimentTaskSimple.getStartTime().getTime() + cnt,
-                    bd.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()
+                    bd.setScale(2, RoundingMode.HALF_UP).doubleValue()
                 );
             }
         }

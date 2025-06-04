@@ -41,10 +41,8 @@ public class ChaosError {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("ChaosError{");
-        sb.append("code=").append(code);
-        sb.append(", message='").append(errorMessage).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "ChaosError{" + "code=" + code +
+                ", message='" + errorMessage + '\'' +
+                '}';
     }
 }

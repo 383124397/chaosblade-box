@@ -8,12 +8,5 @@ import com.alibaba.chaosblade.box.common.common.domain.chaosblade.ChaosBladeMeta
  */
 public interface LitmusChaosListener {
 
-    /**
-     *
-     * @param litmusChaosInvoker
-     * @param cloud
-     * @return
-     * @throws Exception
-     */
     ChaosBladeMetaData onCompleted(LitmusChaosInvoker litmusChaosInvoker) throws Exception;
 }

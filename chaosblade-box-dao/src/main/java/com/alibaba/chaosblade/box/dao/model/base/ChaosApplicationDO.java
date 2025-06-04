@@ -4,16 +4,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-/**
- * 应用表
- * 区别于{@link ApplicationDO}
- *
- * @author haibin
- *
- * 
- * @see com.alibaba.chaosblade.box.service.cloud.base.persistence.domain.AhasChaosApplicationGroupDO
- * @see AhasChaosApplicationDeviceDO
- */
 @Data
 @ToString
 @EqualsAndHashCode(callSuper = true)

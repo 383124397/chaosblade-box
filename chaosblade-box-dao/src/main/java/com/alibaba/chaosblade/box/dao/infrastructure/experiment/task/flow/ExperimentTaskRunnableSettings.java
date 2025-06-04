@@ -12,6 +12,7 @@ import com.alibaba.chaosblade.box.dao.model.ExperimentDO;
 import com.alibaba.chaosblade.box.dao.model.ExperimentTaskDO;
 import com.google.common.base.Strings;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class ExperimentTaskRunnableSettings extends HashMapSettings {
     }
 
     public Map<String, Object> getMiniAppContext() {
-        return getObject(ActivityTaskExecutionAttributes.ATTRIBUTE_KEY_MINI_APP_CONTEXT, Map.class);
+        return getObject(ActivityTaskExecutionAttributes.ATTRIBUTE_KEY_MINI_APP_CONTEXT, HashMap.class);
     }
 
     public void setMiniAppContext(Map<String, Object> miniAppContext) {

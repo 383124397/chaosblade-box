@@ -58,7 +58,10 @@ security:
   basic:
     enabled: false
 server:
-  port: 7001
+  port: 8080
+  servlet:
+    session:
+      timeout: 7d
 
 logging:
   level:
@@ -75,20 +78,22 @@ spring:
   datasource:
     continue-on-error: true
     data: classpath:sql/data/*.sql
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
     initialize: true
-    password: 123456
     schema: classpath:sql/schema/chaosblade-box-ddl.sql
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://10.10.222.103:3306/chaosblade?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
+    url: jdbc:mysql://localhost:3306/chaosblade?allowPublicKeyRetrieval=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: 123456
+    password: 123456
   mcms:
     enabled: false
   mvc:
     throw-exception-if-no-handler-found: true
   thymeleaf:
+    order: 1
     mode: HTML5
     prefix: classpath:/build
+    suffix: .html
+
   velocity:
     enabled: false

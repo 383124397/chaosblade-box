@@ -45,11 +45,6 @@ public class WorkspaceDO extends BaseDO {
     @TableField("user_id")
     String userId;
 
-    /**
-     * Type of workspace
-     *
-     * @see WorkspaceTypes
-     */
     @TableField("type")
     Integer type;
 

@@ -4,6 +4,7 @@ import com.alibaba.chaosblade.box.common.app.sdk.scope.Host;
 import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.flow.MiniFlow;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  *
  * 
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ActivityGroupDefinitionCheckRequest extends BaseRequest {
 

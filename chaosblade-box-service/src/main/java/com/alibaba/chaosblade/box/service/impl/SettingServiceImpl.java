@@ -308,20 +308,17 @@ public class SettingServiceImpl implements SettingService {
             return Response.ofSuccess("have installed");
         }
 
-        MgrRequest mgrRequest = MgrRequest.builder().
-                appGroupName(installAgentForHostRequest.getAppGroupName()).
-                appName(installAgentForHostRequest.getAppName()).
-                instanceIp(installAgentForHostRequest.getInstanceId()).
-                instancePort(installAgentForHostRequest.getSshPort()).
-                instanceUser(installAgentForHostRequest.getSshUser()).
-                instancePassword(installAgentForHostRequest.getSshPassword()).
-                needPassword(true).
-                license(lincense).
-                agentCtl(agentCtl).
-                chaosboxEndpoint(boxServerDomain).
-                build();
-        // set community license
-
+        MgrRequest mgrRequest = new MgrRequest();
+        mgrRequest.setAppGroupName(installAgentForHostRequest.getAppGroupName());
+        mgrRequest.setAppName(installAgentForHostRequest.getAppName());
+        mgrRequest.setLicense(lincense);
+        mgrRequest.setInstanceIp(installAgentForHostRequest.getInstanceId());
+        mgrRequest.setInstancePort(installAgentForHostRequest.getSshPort());
+        mgrRequest.setInstanceUser(installAgentForHostRequest.getSshUser());
+        mgrRequest.setInstancePassword(installAgentForHostRequest.getSshPassword());
+        mgrRequest.setNeedPassword(true);
+        mgrRequest.setAgentCtl(agentCtl);
+        mgrRequest.setChaosboxEndpoint(boxServerDomain);
 
         Response<String> testResponse = chaosToolsMgr.testConnection(mgrRequest);
         if (!testResponse.isSuccess()){

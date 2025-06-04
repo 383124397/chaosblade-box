@@ -3,6 +3,7 @@ package com.alibaba.chaosblade.box.service.model.param;
 import com.alibaba.chaosblade.box.common.app.sdk.scope.Host;
 import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  *
  *
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ParamOptionsQueryRequest extends BaseRequest {
 	

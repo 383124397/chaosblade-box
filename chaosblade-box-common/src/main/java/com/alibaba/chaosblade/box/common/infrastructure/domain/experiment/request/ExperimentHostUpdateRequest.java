@@ -3,6 +3,7 @@ package com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.reque
 import com.alibaba.chaosblade.box.common.app.sdk.scope.Host;
 import com.alibaba.chaosblade.box.common.common.domain.BaseRequest;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  *
  *
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ExperimentHostUpdateRequest extends BaseRequest {
 
@@ -24,10 +26,6 @@ public class ExperimentHostUpdateRequest extends BaseRequest {
 
     private List<Host> hosts;
 
-    /**
-     * 机器选择方式
-     * {@link HostSelectTypes}
-     */
     private Integer selectType = 1;
 
     private Integer hostPercent;

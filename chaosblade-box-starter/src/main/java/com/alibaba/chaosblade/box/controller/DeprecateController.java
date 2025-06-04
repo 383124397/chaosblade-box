@@ -57,7 +57,6 @@ public class DeprecateController extends BaseController {
     }
 
     @PostMapping(value = "/UpdateExperimentBasicInfo")
-    @Deprecated
     public RestResponse<Boolean> updateExperimentBasicInfo(@LoginUser ChaosUser chaosUser,
                                                            @RequestBody ExperimentUpdateRequest experimentBasicInfoUpdateRequest) throws ChaosException {
         userPermissionService.checkExperimentPermission(PermissionTypes.W, chaosUser,
@@ -69,7 +68,6 @@ public class DeprecateController extends BaseController {
 
     @ApiOperation(value = "更新演练定义")
     @PostMapping(value = "/UpdateExperimentFlowDefinition")
-    @Deprecated
     public RestResponse<Void> updateExperimentDefinition(@LoginUser ChaosUser chaosUser,
                                                          @RequestBody ExperimentDefinitionRequest experimentFlowDefinitionRequest) {
 

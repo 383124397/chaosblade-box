@@ -40,11 +40,9 @@ public class WhereRuleItem {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("WhereRuleItem{");
-        sb.append("column='").append(column).append('\'');
-        sb.append(", operator='").append(operator).append('\'');
-        sb.append(", value='").append(value).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "WhereRuleItem{" + "column='" + column + '\'' +
+                ", operator='" + operator + '\'' +
+                ", value='" + value + '\'' +
+                '}';
     }
 }

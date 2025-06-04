@@ -48,10 +48,6 @@ public final class ResourceBundleHolder implements Serializable {
      */
     private static final Locale ROOT = new Locale("");
 
-    /**
-     * @param owner The name of the generated resource bundle class.
-     * @deprecated Use {@link #get(Class)}
-     */
     public ResourceBundleHolder(Class<?> owner) {
         this.owner = owner;
     }

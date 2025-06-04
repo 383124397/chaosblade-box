@@ -4,6 +4,7 @@ import com.alibaba.chaosblade.box.common.experiment.task.flow.util.HashMapSettin
 import com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.flow.ExperimentActivityInfo;
 import com.alibaba.chaosblade.box.common.infrastructure.domain.experiment.request.InitMiniFlowRequest;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.Map;
  *
  * 
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class InitMiniFlowByAppCodeInterceptorContext extends HashMapSettings {
 

@@ -3,41 +3,36 @@ package com.alibaba.chaosblade.box.dao.model;
 import com.alibaba.chaosblade.box.dao.model.base.BaseDO;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author haibin
  *
  *
  */
-@TableName(value = "t_chaos_expertise")
+@EqualsAndHashCode(callSuper = true)
 @Data
+@TableName(value = "t_chaos_expertise")
 public class ExpertiseDO extends BaseDO {
 
     @TableId(value = "expertise_id", type = IdType.ID_WORKER)
     private String expertiseId;
 
-    @TableField(value = "name", strategy = FieldStrategy.NOT_EMPTY)
+    @TableField(value = "name", insertStrategy = FieldStrategy.NOT_EMPTY)
     private String name;
 
-    @TableField(value = "function_desc", strategy = FieldStrategy.NOT_EMPTY)
+    @TableField(value = "function_desc", insertStrategy = FieldStrategy.NOT_EMPTY)
     private String functionDesc;
 
-    @TableField(value = "background_desc", strategy = FieldStrategy.NOT_EMPTY)
+    @TableField(value = "background_desc", insertStrategy = FieldStrategy.NOT_EMPTY)
     private String backgroundDesc;
 
-    @TableField(value = "design_concept", strategy = FieldStrategy.NOT_EMPTY)
+    @TableField(value = "design_concept", insertStrategy = FieldStrategy.NOT_EMPTY)
     private String designConcept;
 
-    /**
-     * 状态
-     *
-     * @see {@link ExpertiseConstant}
-     */
+    @TableField(value = "state")
     private Integer state;
 
-    /**
-     * 关联的演练id
-     */
     @TableField(value = "experiment_Id")
     private String experimentId;
 
@@ -50,18 +45,9 @@ public class ExpertiseDO extends BaseDO {
     @TableField(value = "namespace")
     private String namespace;
 
-
-    /**
-     * 经验库类型
-     *
-     * @see {@link ExpertiseConstant}
-     */
     @TableField(value = "type")
     private Integer type;
 
-    /**
-     * 支持的应用类型
-     */
     @TableField(value = "scope_type")
     private String scopeType;
 

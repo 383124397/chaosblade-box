@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class SettingRequest {
+
     String Namespace;
 
     String ConfigurationId;

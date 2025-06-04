@@ -6,6 +6,7 @@ import com.alibaba.chaosblade.box.common.common.domain.user.ChaosUser;
 import com.alibaba.chaosblade.box.common.infrastructure.domain.scope.ScopeQuery;
 import com.alibaba.chaosblade.box.dao.model.base.PageableQueryWrapper;
 import com.alibaba.chaosblade.box.dao.model.base.PageableResponse;
+import com.alibaba.chaosblade.box.service.model.device.CloudDevice;
 
 import java.util.List;
 
@@ -17,15 +18,7 @@ import java.util.List;
  */
 public interface ScopeService {
 
-    /**
-     * Query all alive devices.
-     *
-     * @param query query condition
-     * @param <T> device type for internal and cloud
-     * @return all alive devices
-     *
-     */
-    <T extends Scope> List<T> queryAliveScopes(ScopeQuery query);
+    List<CloudDevice> queryAliveScopes(ScopeQuery query);
 
     <T extends Scope, Q extends ScopeQuery> PageableResponse<T> queryAliveScopesByPage(ChaosUser user, PageableQueryWrapper<Q> query, String nameSpace);
 }

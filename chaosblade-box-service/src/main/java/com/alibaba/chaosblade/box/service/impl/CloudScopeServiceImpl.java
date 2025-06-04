@@ -38,14 +38,17 @@ public class CloudScopeServiceImpl extends AbstractScopeService implements Scope
     @Autowired
     private CommandBus commandBus;
 
-    @SuppressWarnings("unchecked")
     @Override
     public List<CloudDevice> queryAliveScopes(ScopeQuery query) {
-        CloudDeviceQuery deviceQuery = (CloudDeviceQuery)query;
+        if (!(query instanceof CloudDeviceQuery)) {
+            throw new IllegalArgumentException("Query must be of type CloudDeviceQuery");
+        }
+        CloudDeviceQuery deviceQuery = (CloudDeviceQuery) query;
+
         return deviceRepository.getAliveDevices(deviceQuery)
-            .stream()
-            .map(CloudDevice::from)
-            .collect(Collectors.toList());
+                .stream()
+                .map(CloudDevice::from)
+                .collect(Collectors.toList());
     }
 
     @SuppressWarnings("unchecked")

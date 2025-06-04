@@ -54,7 +54,7 @@ public abstract class BaseSchedulerService implements SchedulerJobService {
             }
         } catch (Exception e) {
             if (schedulerJobDO != null) {
-                log.error("add scheduler failed,jobId:" + schedulerJobDO.getJobId(), e);
+                log.error("add scheduler failed,jobId:{}", schedulerJobDO.getJobId(), e);
             }
         }
         return schedulerJobDO.getJobId();
@@ -150,7 +150,7 @@ public abstract class BaseSchedulerService implements SchedulerJobService {
             try {
                 rescheduleCronJob(schedulerJobDO);
             } catch (Exception e) {
-                log.error("update scheduler failed,jobId:" + schedulerJobDO.getJobId(), e);
+                log.error("update scheduler failed,jobId:{}", schedulerJobDO.getJobId(), e);
             }
         }
     }

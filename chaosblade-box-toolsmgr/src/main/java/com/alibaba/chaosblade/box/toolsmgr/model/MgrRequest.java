@@ -1,10 +1,8 @@
 package com.alibaba.chaosblade.box.toolsmgr.model;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class MgrRequest {
     String license;
 
